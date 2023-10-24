@@ -43,16 +43,29 @@ async function getPokemon() {
         ).textContent = `${pokemon.name} is a ${pokemon.types[0].type.name} type`;
         pokeCard.querySelector(
             "p"
-        ).textContent = `${pokemon.name} will fuck you up with a ${pokemon.moves[2].move.name}`;
+        ).textContent = `${pokemon.name} will mess you up with a ${pokemon.moves[2].move.name}`;
         pokeCard.querySelector("button").textContent = `Catch ${pokemon.name}`;
 
         pokeList.append(pokeCard);
-
-
+        
+        vanillaTilt('.pokecard')
+        
     }
 }
 
-getPokemon();
+function appInit() {
+    getPokemon();
+}
+
+function vanillaTilt(selector) {
+    VanillaTilt.init(document.querySelectorAll(selector), {
+        max: 25,
+        speed: 400
+    });
+}
+
+appInit();
+
 
 
 // const elem = document.createElement('img');
